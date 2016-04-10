@@ -1,0 +1,3 @@
+contacts:
+    path:     /contacts
+    defaults: { _controller: EntrepriseBundle:contacts:contacts }

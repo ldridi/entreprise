@@ -1,0 +1,23 @@
+GestionEntreprise:
+    resource: "@EntrepriseBundle/Resources/config/routingGestionEntreprise/routingGestionEntreprise.yml"
+    prefix:   /
+
+contactsEntreprise:
+    resource: "@EntrepriseBundle/Resources/config/routingContactsEntreprise/routingContactsEntreprise.yml"
+    prefix:   /
+
+soutraitanceEntreprise:
+    resource: "@EntrepriseBundle/Resources/config/routingSoutraitanceEntreprise/routingSoutraitanceEntreprise.yml"
+    prefix:   /
+
+statistiqueEntreprise:
+    resource: "@EntrepriseBundle/Resources/config/routingStatistiqueEntreprise/routingStatistiqueEntreprise.yml"
+    prefix:   /
+
+routingProfile:
+    resource: "@EntrepriseBundle/Resources/config/routingUser/routingProfile.yml"
+    prefix:   /user
+
+entreprise_homepage:
+    path:     /
+    defaults: { _controller: EntrepriseBundle:Default:index }

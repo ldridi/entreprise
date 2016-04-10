@@ -1,0 +1,7 @@
+erreur:
+    resource: "@PageBundle/Resources/config/routingError/routing.yml"
+    prefix:   /
+
+page_homepage:
+    path:     /
+    defaults: { _controller: PageBundle:Default:index }

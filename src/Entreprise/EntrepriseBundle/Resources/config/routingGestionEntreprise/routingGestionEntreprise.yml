@@ -1,0 +1,3 @@
+gestionEntreprise:
+    path:     /gestion
+    defaults: { _controller: EntrepriseBundle:gestionEntreprise:gestionEntreprise }

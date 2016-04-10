@@ -1,0 +1,7 @@
+404:
+    path:     /404
+    defaults: { _controller: PageBundle:Default:erreur404 }
+
+500:
+    path:     /500
+    defaults: { _controller: PageBundle:Default:erreur500 }

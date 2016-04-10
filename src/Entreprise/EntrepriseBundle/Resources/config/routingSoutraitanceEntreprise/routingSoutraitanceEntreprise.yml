@@ -1,0 +1,3 @@
+soutraitance:
+    path:     /soutraitance
+    defaults: { _controller: EntrepriseBundle:soutraitance:soutraitance }

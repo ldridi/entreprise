@@ -1,0 +1,11 @@
+page:
+    resource: "@PageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+entreprise:
+    resource: "@EntrepriseBundle/Resources/config/routing.yml"
+    prefix:   /entreprise
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
