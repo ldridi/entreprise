@@ -24,4 +24,34 @@ class Utilisateur extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+    /**
+     * @var boolean $isEntreprise
+     *
+     * @ORM\Column(name="isEntreprise", type="boolean")
+     */
+    private $isEntreprise;
+
+    /**
+     * Set isEntreprise
+     *
+     * @param boolean $isEntreprise
+     * @return Utilisateur
+     */
+    public function setIsEntreprise($isEntreprise)
+    {
+        $this->isEntreprise = $isEntreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get isEntreprise
+     *
+     * @return boolean 
+     */
+    public function getIsEntreprise()
+    {
+        return $this->isEntreprise;
+    }
 }

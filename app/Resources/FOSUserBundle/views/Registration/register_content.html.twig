@@ -9,7 +9,15 @@
         <h3>Register to IN+</h3>
         <p>Create account to see it in action.</p>
         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-
+            <div class="i-checks">
+                {% for en in form.isEntreprise %}
+                    &nbsp;
+                    <label>{{ form_widget(en) }}
+                        {{ form_label(en) }}
+                    </label>
+                    &nbsp;
+                {% endfor %}
+            </div>
             <div class="form-group">
                 {{ form_widget(form.username) }}
             </div>

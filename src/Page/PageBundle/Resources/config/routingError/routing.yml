@@ -1,7 +1,11 @@
+403:
+    path:     /403
+    defaults: { _controller: PageBundle:Error:erreur403 }
+
 404:
     path:     /404
-    defaults: { _controller: PageBundle:Default:erreur404 }
+    defaults: { _controller: PageBundle:Error:erreur404 }
 
 500:
     path:     /500
-    defaults: { _controller: PageBundle:Default:erreur500 }
+    defaults: { _controller: PageBundle:Error:erreur500 }

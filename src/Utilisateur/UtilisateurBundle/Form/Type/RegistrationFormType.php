@@ -16,6 +16,13 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('isEntreprise', 'choice', array(
+                'label' => 'Êtes vous OK ?',
+                'choices' => array(1 => 'Entreprise ', 0 => 'Freelancer'),
+                'expanded' => true,
+                'multiple' => false,
+                'required' => true
+            ))
             ->add('username', null, array('attr'=>array('class'=>'form-control','placeholder'=>'Username','title'=>'Ajouter une chaine de caractere'),'label' => false, 'translation_domain' => 'FOSUserBundle'))
             ->add('email', 'email', array('attr'=>array('required'=>true,'class'=>'form-control','placeholder'=>'Email','title'=>'Ajouter une email valide'),'label' => false, 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', 'repeated', array(

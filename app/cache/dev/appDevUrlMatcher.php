@@ -114,7 +114,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_security_login;
                     }
 
-                    return array (  '_controller' => 'FOSUserBundle:Security:login',  '_route' => 'fos_user_security_login',);
+                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'fos_user_security_login',);
                 }
                 not_fos_user_security_login:
 
@@ -125,7 +125,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_security_check;
                     }
 
-                    return array (  '_controller' => 'FOSUserBundle:Security:check',  '_route' => 'fos_user_security_check',);
+                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::checkAction',  '_route' => 'fos_user_security_check',);
                 }
                 not_fos_user_security_check:
 
@@ -138,7 +138,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_fos_user_security_logout;
                 }
 
-                return array (  '_controller' => 'FOSUserBundle:Security:logout',  '_route' => 'fos_user_security_logout',);
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\SecurityController::logoutAction',  '_route' => 'fos_user_security_logout',);
             }
             not_fos_user_security_logout:
 
@@ -156,7 +156,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->redirect($pathinfo.'/', 'fos_user_profile_show');
                 }
 
-                return array (  '_controller' => 'FOSUserBundle:Profile:show',  '_route' => 'fos_user_profile_show',);
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::showAction',  '_route' => 'fos_user_profile_show',);
             }
             not_fos_user_profile_show:
 
@@ -167,7 +167,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     goto not_fos_user_profile_edit;
                 }
 
-                return array (  '_controller' => 'FOSUserBundle:Profile:edit',  '_route' => 'fos_user_profile_edit',);
+                return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ProfileController::editAction',  '_route' => 'fos_user_profile_edit',);
             }
             not_fos_user_profile_edit:
 
@@ -239,7 +239,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_resetting_request;
                     }
 
-                    return array (  '_controller' => 'FOSUserBundle:Resetting:request',  '_route' => 'fos_user_resetting_request',);
+                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::requestAction',  '_route' => 'fos_user_resetting_request',);
                 }
                 not_fos_user_resetting_request:
 
@@ -250,7 +250,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_resetting_send_email;
                     }
 
-                    return array (  '_controller' => 'FOSUserBundle:Resetting:sendEmail',  '_route' => 'fos_user_resetting_send_email',);
+                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::sendEmailAction',  '_route' => 'fos_user_resetting_send_email',);
                 }
                 not_fos_user_resetting_send_email:
 
@@ -261,7 +261,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_resetting_check_email;
                     }
 
-                    return array (  '_controller' => 'FOSUserBundle:Resetting:checkEmail',  '_route' => 'fos_user_resetting_check_email',);
+                    return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::checkEmailAction',  '_route' => 'fos_user_resetting_check_email',);
                 }
                 not_fos_user_resetting_check_email:
 
@@ -272,7 +272,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         goto not_fos_user_resetting_reset;
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_resetting_reset')), array (  '_controller' => 'FOSUserBundle:Resetting:reset',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_user_resetting_reset')), array (  '_controller' => 'FOS\\UserBundle\\Controller\\ResettingController::resetAction',));
                 }
                 not_fos_user_resetting_reset:
 
@@ -287,18 +287,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 goto not_fos_user_change_password;
             }
 
-            return array (  '_controller' => 'FOSUserBundle:ChangePassword:changePassword',  '_route' => 'fos_user_change_password',);
+            return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'fos_user_change_password',);
         }
         not_fos_user_change_password:
 
-        // 404
-        if ($pathinfo === '/404') {
-            return array (  '_controller' => 'Page\\PageBundle\\Controller\\DefaultController::erreur404Action',  '_route' => 404,);
+        if (0 === strpos($pathinfo, '/40')) {
+            // 403
+            if ($pathinfo === '/403') {
+                return array (  '_controller' => 'Page\\PageBundle\\Controller\\ErrorController::erreur403Action',  '_route' => 403,);
+            }
+
+            // 404
+            if ($pathinfo === '/404') {
+                return array (  '_controller' => 'Page\\PageBundle\\Controller\\ErrorController::erreur404Action',  '_route' => 404,);
+            }
+
         }
 
         // 500
         if ($pathinfo === '/500') {
-            return array (  '_controller' => 'Page\\PageBundle\\Controller\\DefaultController::erreur500Action',  '_route' => 500,);
+            return array (  '_controller' => 'Page\\PageBundle\\Controller\\ErrorController::erreur500Action',  '_route' => 500,);
         }
 
         // page_homepage

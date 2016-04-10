@@ -39,21 +39,31 @@ class RegistrationController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $user = $userManager->createUser();
         $user->setEnabled(true);
-        $user->setLocked(true);
+
         $event = new GetResponseUserEvent($user, $request);
         $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
         if (null !== $event->getResponse()) {
             return $event->getResponse();
         }
         $form = $formFactory->createForm();
+
         $form->setData($user);
         $form->handleRequest($request);
         if ($form->isValid()) {
+            $data = $request->request->get('fos_user_registration_form')['isEntreprise'];
+            if($data == "1"){
+                $urlRedirect = "entreprise_homepage";
+                $user->addRole('ROLE_ENTREPRISE');
+            }else{
+                $urlRedirect = "page_homepage";
+                $user->addRole('ROLE_TEST');
+            }
+
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
             $userManager->updateUser($user);
             if (null === $response = $event->getResponse()) {
-                $url = $this->generateUrl('entreprise_homepage');
+                $url = $this->generateUrl($urlRedirect);
                 $response = new RedirectResponse($url);
                 $em->flush();
             }

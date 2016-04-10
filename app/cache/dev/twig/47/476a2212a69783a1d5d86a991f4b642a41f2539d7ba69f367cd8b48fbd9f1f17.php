@@ -15,8 +15,8 @@ class __TwigTemplate_7f595355625a305eaa5916ea8ffc2622e8b583f810619ee70bd0c9ce8b1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8d1bbefbb11306deb3ac5e162c070b27c23e5a660913f3c095d6b940d7dea13f = $this->env->getExtension("native_profiler");
-        $__internal_8d1bbefbb11306deb3ac5e162c070b27c23e5a660913f3c095d6b940d7dea13f->enter($__internal_8d1bbefbb11306deb3ac5e162c070b27c23e5a660913f3c095d6b940d7dea13f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle:Registration:register_content.html.twig"));
+        $__internal_61c95dec128d7c2e5979d343a1b8b4a1d73116391b1a921df4339d101b6569cb = $this->env->getExtension("native_profiler");
+        $__internal_61c95dec128d7c2e5979d343a1b8b4a1d73116391b1a921df4339d101b6569cb->enter($__internal_61c95dec128d7c2e5979d343a1b8b4a1d73116391b1a921df4339d101b6569cb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle:Registration:register_content.html.twig"));
 
         // line 2
         echo "<div class=\"middle-box text-center loginscreen   animated fadeInDown\">
@@ -32,28 +32,52 @@ class __TwigTemplate_7f595355625a305eaa5916ea8ffc2622e8b583f810619ee70bd0c9ce8b1
         // line 11
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start', array("method" => "post", "action" => $this->env->getExtension('routing')->getPath("fos_user_registration_register"), "attr" => array("class" => "fos_user_registration_register")));
         echo "
-
+            <div class=\"i-checks\">
+                ";
+        // line 13
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "isEntreprise", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["en"]) {
+            // line 14
+            echo "                    &nbsp;
+                    <label>";
+            // line 15
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["en"], 'widget');
+            echo "
+                        ";
+            // line 16
+            echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($context["en"], 'label');
+            echo "
+                    </label>
+                    &nbsp;
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['en'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 20
+        echo "            </div>
             <div class=\"form-group\">
                 ";
-        // line 14
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "username", array()), 'widget');
         echo "
             </div>
             <div class=\"form-group\">
                 ";
-        // line 17
+        // line 25
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "email", array()), 'widget');
         echo "
             </div>
             <div class=\"form-group\">
                 ";
-        // line 20
+        // line 28
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword", array()), "first", array()), 'widget');
         echo "
             </div>
             <div class=\"form-group\">
                 ";
-        // line 23
+        // line 31
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "plainPassword", array()), "second", array()), 'widget');
         echo "
             </div>
@@ -62,24 +86,24 @@ class __TwigTemplate_7f595355625a305eaa5916ea8ffc2622e8b583f810619ee70bd0c9ce8b1
             </div>
             <div>
                 <input type=\"submit\" value=\"";
-        // line 29
+        // line 37
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("registration.submit", array(), "FOSUserBundle"), "html", null, true);
         echo "\" class=\"btn btn-primary block full-width m-b\" />
             </div>
             <p class=\"text-muted text-center\"><small>Already have an account?</small></p>
             <a class=\"btn btn-sm btn-white btn-block\" href=\"";
-        // line 32
+        // line 40
         echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
         echo "\">Login</a>
         ";
-        // line 33
+        // line 41
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
         <p class=\"m-t\"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
     </div>
 </div>";
         
-        $__internal_8d1bbefbb11306deb3ac5e162c070b27c23e5a660913f3c095d6b940d7dea13f->leave($__internal_8d1bbefbb11306deb3ac5e162c070b27c23e5a660913f3c095d6b940d7dea13f_prof);
+        $__internal_61c95dec128d7c2e5979d343a1b8b4a1d73116391b1a921df4339d101b6569cb->leave($__internal_61c95dec128d7c2e5979d343a1b8b4a1d73116391b1a921df4339d101b6569cb_prof);
 
     }
 
@@ -95,7 +119,7 @@ class __TwigTemplate_7f595355625a305eaa5916ea8ffc2622e8b583f810619ee70bd0c9ce8b1
 
     public function getDebugInfo()
     {
-        return array (  76 => 33,  72 => 32,  66 => 29,  57 => 23,  51 => 20,  45 => 17,  39 => 14,  33 => 11,  22 => 2,);
+        return array (  100 => 41,  96 => 40,  90 => 37,  81 => 31,  75 => 28,  69 => 25,  63 => 22,  59 => 20,  49 => 16,  45 => 15,  42 => 14,  38 => 13,  33 => 11,  22 => 2,);
     }
 }
 /* {% trans_default_domain 'FOSUserBundle' %}*/
@@ -109,7 +133,15 @@ class __TwigTemplate_7f595355625a305eaa5916ea8ffc2622e8b583f810619ee70bd0c9ce8b1
 /*         <h3>Register to IN+</h3>*/
 /*         <p>Create account to see it in action.</p>*/
 /*         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}*/
-/* */
+/*             <div class="i-checks">*/
+/*                 {% for en in form.isEntreprise %}*/
+/*                     &nbsp;*/
+/*                     <label>{{ form_widget(en) }}*/
+/*                         {{ form_label(en) }}*/
+/*                     </label>*/
+/*                     &nbsp;*/
+/*                 {% endfor %}*/
+/*             </div>*/
 /*             <div class="form-group">*/
 /*                 {{ form_widget(form.username) }}*/
 /*             </div>*/
